@@ -10,3 +10,4 @@ linter:
     - always_declare_return_types
     - empty_catches
     - use_super_parameters
+    - directives_ordering

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 final regExp = RegExp(
-  r'(fix|feat|chore|refactor|docs|style|test):.+',
+  r'(fix|feat|chore|refactor|docs|style|test)(\(\w+\))?:.+',
 );
 
 void main() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class PlayGroundScreen extends StatefulWidget {
   const PlayGroundScreen({super.key});
@@ -26,12 +27,23 @@ class _PlayGroundScreenState extends State<PlayGroundScreen> {
       appBar: AppBar(
         title: const Text('PlayGround'),
       ),
-      body: Center(
-        child: Text(text),
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(text),
+              FilledButton(
+                onPressed: () {},
+                child: const Text('Button Text'),
+              )
+            ],
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _onTapChange,
-        child: const Icon(Icons.change_circle),
+        child: const Icon(FontAwesomeIcons.sliders),
       ),
     );
   }

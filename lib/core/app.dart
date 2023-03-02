@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gardeny/core/constants/styles.dart';
 import 'package:gardeny/core/routes.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,8 @@ class App extends StatelessWidget {
     return GetMaterialApp(
       initialRoute: Routes.playGround.name,
       routes: getRoutes(context),
+      theme: kAppThemeLight,
+      darkTheme: kAppThemeDark,
     );
   }
 }

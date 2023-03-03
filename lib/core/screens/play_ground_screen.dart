@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../translations/locales.dart';
+
 class PlayGroundScreen extends StatefulWidget {
   const PlayGroundScreen({super.key});
 
@@ -9,15 +11,15 @@ class PlayGroundScreen extends StatefulWidget {
 }
 
 class _PlayGroundScreenState extends State<PlayGroundScreen> {
-  String text = 'This is a widget';
+  String text = Tr.thisIsAWidget;
 
   void _onTapChange() {
     setState(() {
-      if (text == 'This is a widget') {
-        text = 'This is a different text';
+      if (text == Tr.thisIsAWidget) {
+        text = Tr.thisIsADifferentText;
         return;
       }
-      text = 'This is a widget';
+      text = Tr.thisIsAWidget;
     });
   }
 
@@ -25,7 +27,7 @@ class _PlayGroundScreenState extends State<PlayGroundScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PlayGround'),
+        title: Text(Tr.playGround),
       ),
       body: SafeArea(
         child: Center(
@@ -35,7 +37,7 @@ class _PlayGroundScreenState extends State<PlayGroundScreen> {
               Text(text),
               FilledButton(
                 onPressed: () {},
-                child: const Text('Button Text'),
+                child: Text(Tr.playGround),
               )
             ],
           ),

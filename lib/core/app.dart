@@ -3,6 +3,7 @@ import 'package:gardeny/core/constants/styles.dart';
 import 'package:gardeny/core/routes.dart';
 import 'package:get/get.dart';
 
+import 'translations/root.dart';
 import 'widget_book/root.dart';
 
 class App extends StatelessWidget {
@@ -15,6 +16,9 @@ class App extends StatelessWidget {
     }
     return GetMaterialApp(
       initialRoute: Routes.playGround.name,
+      translations: AppTranslations(),
+      locale: Get.deviceLocale,
+      fallbackLocale: const Locale('en', 'US'),
       routes: getRoutes(context),
       theme: kAppThemeLight,
       darkTheme: kAppThemeDark,

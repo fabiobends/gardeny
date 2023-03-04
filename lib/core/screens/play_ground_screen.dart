@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../translations/locales.dart';
+import '../widgets/button.dart';
 
 class PlayGroundScreen extends StatefulWidget {
   const PlayGroundScreen({super.key});
@@ -35,9 +36,9 @@ class _PlayGroundScreenState extends State<PlayGroundScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(text),
-              FilledButton(
+              Button(
                 onPressed: () {},
-                child: Text(Tr.playGround),
+                label: Tr.playGround,
               )
             ],
           ),

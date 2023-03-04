@@ -4,18 +4,30 @@ import 'package:gardeny/core/routes.dart';
 import 'package:get/get.dart';
 
 import 'translations/root.dart';
-import 'widget_book/root.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    if (GetPlatform.isWeb) {
-      return const WidgetBookScreen();
-    }
+    return AppConfig(
+      initialRoute:
+          GetPlatform.isWeb ? Routes.widgetBook.name : Routes.playGround.name,
+    );
+  }
+}
+
+class AppConfig extends StatelessWidget {
+  const AppConfig({
+    super.key,
+    required this.initialRoute,
+  });
+
+  final String? initialRoute;
+  @override
+  Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: Routes.playGround.name,
+      initialRoute: initialRoute,
       translations: AppTranslations(),
       locale: Get.deviceLocale,
       fallbackLocale: const Locale('en', 'US'),

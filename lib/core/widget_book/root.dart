@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gardeny/core/constants/styles.dart';
 import 'package:gardeny/core/widget_book/categories/widgets.dart';
 import 'package:widgetbook/widgetbook.dart';
 
@@ -18,10 +19,10 @@ class WidgetBookScreen extends StatelessWidget {
 List<WidgetbookTheme<ThemeData>> _widgetBookThemes = [
   WidgetbookTheme(
     name: 'Light',
-    data: ThemeData.light(),
+    data: kAppThemeLight,
   ),
   WidgetbookTheme(
     name: 'Dark',
-    data: ThemeData.dark(),
+    data: kAppThemeDark,
   ),
 ];

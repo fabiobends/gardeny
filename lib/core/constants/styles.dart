@@ -2,26 +2,19 @@ import 'package:flutter/material.dart';
 
 import 'colors.dart';
 
-final kAppThemeLight = ThemeData(
-  fontFamily: 'Nunito',
-  buttonTheme: const ButtonThemeData(buttonColor: kLightBlueCharcoal),
-  colorScheme: const ColorScheme(
-    primary: kGreen,
-    onPrimary: Colors.black,
-    secondary: kLightBlueCharcoal,
-    onSecondary: Colors.white,
-    background: Colors.white,
-    onBackground: Colors.black,
-    brightness: Brightness.light,
-    surface: Colors.blueGrey,
-    onSurface: Colors.black,
-    error: Colors.white,
-    onError: kRed,
-  ),
-  textTheme: kAppTextTheme,
-);
+List<int> swatchKeys = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-const kAppTextTheme = TextTheme(
+Map<int, Color> getSwatchPairs() {
+  final Map<int, Color> swatchPairs = {};
+  for (final item in swatchKeys) {
+    swatchPairs[item] = kGreen.withOpacity(item / 1000);
+  }
+  return swatchPairs;
+}
+
+final primarySwatch = MaterialColor(kGreen.value, getSwatchPairs());
+
+const TextTheme kAppTextTheme = TextTheme(
   displayLarge: TextStyle(fontFamily: 'Arima Madurai'),
   displayMedium: TextStyle(fontFamily: 'Arima Madurai'),
   displaySmall: TextStyle(fontFamily: 'Arima Madurai'),
@@ -31,23 +24,33 @@ const kAppTextTheme = TextTheme(
   titleLarge: TextStyle(fontFamily: 'Arima Madurai'),
 );
 
-final kAppThemeDark = kAppThemeLight.copyWith(
-  scaffoldBackgroundColor: Colors.grey[850],
-  colorScheme: ColorScheme(
-    primary: kDarkGreen,
-    onPrimary: Colors.white,
-    secondary: kBlueCharcoal,
-    onSecondary: Colors.white,
-    background: Colors.grey[850] ?? Colors.grey.shade900,
-    onBackground: Colors.white,
+final kAppThemeLight = ThemeData(
+  fontFamily: 'Nunito',
+  textTheme: kAppTextTheme,
+  colorScheme: ColorScheme.fromSwatch(
+    primarySwatch: primarySwatch,
+    backgroundColor: Colors.grey.shade400,
     brightness: Brightness.light,
-    surface: Colors.black,
-    onSurface: Colors.blueGrey,
-    error: Colors.grey.shade800,
-    onError: kRed,
+    accentColor: kBlueCharcoal,
+    primaryColorDark: kDarkGreen,
+    cardColor: Colors.white,
+    errorColor: kRed,
   ),
+);
+
+final kAppThemeDark = kAppThemeLight.copyWith(
+  scaffoldBackgroundColor: Colors.grey.shade900,
   textTheme: kAppTextTheme.apply(
-    bodyColor: Colors.white,
-    displayColor: Colors.white,
+    displayColor: Colors.grey.shade200,
+    bodyColor: Colors.grey.shade300,
+  ),
+  colorScheme: ColorScheme.fromSwatch(
+    primarySwatch: primarySwatch,
+    backgroundColor: Colors.grey.shade900,
+    brightness: Brightness.dark,
+    accentColor: kLightBlueCharcoal,
+    primaryColorDark: kLightGreen,
+    cardColor: Colors.grey.shade800,
+    errorColor: kRed,
   ),
 );

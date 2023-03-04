@@ -5,7 +5,7 @@ class Button extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.label,
-    this.isCTA = false,
+    this.isCTA = true,
   });
 
   final VoidCallback onPressed;

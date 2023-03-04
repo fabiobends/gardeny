@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:gardeny/core/widgets/button.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 WidgetbookCategory widgetsCategory = WidgetbookCategory(
@@ -8,14 +8,11 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
       name: 'Button',
       useCases: [
         WidgetbookUseCase(
-          name: 'Elevated',
-          builder: (context) => ElevatedButton(
+          name: 'Regular',
+          builder: (context) => Button(
             onPressed: () {},
-            child: Text(
-              context.knobs.text(
-                label: 'Hello',
-              ),
-            ),
+            label: context.knobs.text(label: 'Label'),
+            isCTA: context.knobs.boolean(label: 'isCTA'),
           ),
         ),
       ],

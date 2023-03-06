@@ -69,6 +69,7 @@ final kAppThemeDark = kAppThemeLight.copyWith(
     bodyColor: Colors.grey.shade300,
     displayColor: Colors.grey.shade200,
   ),
+  hintColor: Colors.grey.shade500,
 );
 
 /// Paddings

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gardeny/core/constants/styles.dart';
 
 class Button extends StatelessWidget {
   const Button({
@@ -34,9 +35,9 @@ class Button extends StatelessWidget {
           TextButton(
             style: TextButton.styleFrom(
               foregroundColor: isCTA
-                  ? theme.colorScheme.onPrimary
+                  ? theme.textTheme.displaySmall?.color
                   : theme.colorScheme.primary,
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              padding: kTextPadding,
             ),
             onPressed: () {},
             child: Text(label),

@@ -39,7 +39,7 @@ class _PlayGroundScreenState extends State<PlayGroundScreen> {
               Button(
                 onPressed: () {},
                 label: Tr.playGround,
-              )
+              ),
             ],
           ),
         ),

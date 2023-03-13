@@ -50,6 +50,7 @@ final kAppThemeLight = ThemeData(
     errorColor: kRed,
   ).copyWith(
     onPrimary: Colors.grey.shade900,
+    onSurface: Colors.grey.shade900,
   ),
   fontFamily: 'Nunito',
   scaffoldBackgroundColor: Colors.grey.shade300,

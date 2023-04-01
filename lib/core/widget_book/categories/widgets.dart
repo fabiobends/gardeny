@@ -20,8 +20,14 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
           name: 'Regular',
           builder: (context) => Button(
             onPressed: () {},
-            label: context.knobs.text(label: 'Label'),
-            isCTA: context.knobs.boolean(label: 'isCTA'),
+            label: context.knobs.text(
+              label: 'Label',
+              initialValue: 'This is a label',
+            ),
+            isCTA: context.knobs.boolean(
+              label: 'isCTA',
+              initialValue: false,
+            ),
           ),
         ),
       ],
@@ -32,9 +38,18 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
         WidgetbookUseCase(
           name: 'Regular',
           builder: (context) => InputField(
-            isPassword: context.knobs.boolean(label: 'isPassword'),
-            label: context.knobs.text(label: 'Label'),
-            hintText: context.knobs.text(label: 'Hint Text'),
+            isPassword: context.knobs.boolean(
+              label: 'isPassword',
+              initialValue: false,
+            ),
+            label: context.knobs.text(
+              label: 'Label',
+              initialValue: 'This is a label',
+            ),
+            hintText: context.knobs.text(
+              label: 'Hint Text',
+              initialValue: 'This is a helper text',
+            ),
           ),
         ),
       ],
@@ -51,14 +66,25 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
             ),
             title: context.knobs.text(
               label: 'title',
+              initialValue: 'This is a title',
             ),
             heroImageUrl: context.knobs.text(
               label: 'heroImageUrl',
               initialValue: 'https://picsum.photos/1000',
             ),
-            firstText: context.knobs.text(label: 'firstText'),
-            secondText: context.knobs.text(label: 'secondText'),
-            thirdText: context.knobs.text(label: 'thirdText'),
+            firstText: context.knobs.text(
+              label: 'firstText',
+              initialValue: 'This plant, also known as ',
+            ),
+            secondText: context.knobs.text(
+              label: 'secondText',
+              initialValue: 'latin name',
+            ),
+            thirdText: context.knobs.text(
+              label: 'thirdText',
+              initialValue:
+                  ', is beautiful. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            ),
           ),
         ),
         WidgetbookUseCase(
@@ -68,14 +94,23 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
               label: 'avatarImageUrl',
               initialValue: 'https://picsum.photos/1000',
             ),
-            title: context.knobs.text(label: 'title'),
+            title: context.knobs.text(
+              label: 'title',
+              initialValue: 'This is a title',
+            ),
             heroImageUrl: context.knobs.text(
               label: 'heroImageUrl',
               initialValue: 'https://picsum.photos/1000',
             ),
-            firstText: context.knobs.text(label: 'firstText'),
-            secondText: context.knobs.text(label: 'secondText'),
-            thirdText: context.knobs.text(label: 'thirdText'),
+            firstText: context.knobs.text(
+                label: 'firstText', initialValue: 'This plant, also known as '),
+            secondText: context.knobs
+                .text(label: 'secondText', initialValue: 'latin name'),
+            thirdText: context.knobs.text(
+              label: 'thirdText',
+              initialValue:
+                  ', is beautiful. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            ),
             isLiked: true,
             onTapLike: onTapLike,
           ),

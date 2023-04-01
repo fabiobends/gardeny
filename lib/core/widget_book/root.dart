@@ -11,6 +11,10 @@ class WidgetBookScreen extends StatelessWidget {
     return Widgetbook.material(
       categories: [widgetsCategory],
       themes: _widgetBookThemes,
+      supportedLocales: [
+        const Locale('en', 'US'),
+        const Locale('pt', 'BR'),
+      ],
       appInfo: AppInfo(name: 'Gardeny Examples'),
     );
   }

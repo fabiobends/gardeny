@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gardeny/core/constants/styles.dart';
 import 'package:gardeny/core/routes.dart';
@@ -11,8 +12,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppConfig(
-      initialRoute:
-          GetPlatform.isWeb ? Routes.widgetBook.name : Routes.playGround.name,
+      initialRoute: kIsWeb && kDebugMode
+          ? Routes.widgetBook.name
+          : Routes.playGround.name,
     );
   }
 }

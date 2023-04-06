@@ -168,6 +168,7 @@ class ContentCard extends StatelessWidget {
     required this.firstText,
     required this.secondText,
     required this.thirdText,
+    this.iconState,
   });
 
   final String avatarImageUrl;
@@ -176,13 +177,22 @@ class ContentCard extends StatelessWidget {
   final String firstText;
   final String secondText;
   final String thirdText;
+  final IconState? iconState;
 
   @override
   Widget build(BuildContext context) {
     return CardBase(
       avatarImageUrl: avatarImageUrl,
       title: title,
-      body: CardHero(imageUrl: heroImageUrl),
+      body: iconState != null
+          ? CardHeroWithToggleIcon(
+              imageUrl: heroImageUrl,
+              iconActiveColor: iconState!.iconActiveColor,
+              iconData: iconState!.iconData,
+              onTapIcon: iconState!.onTapIcon,
+              isIconActive: iconState!.isIconActive,
+            )
+          : CardHero(imageUrl: heroImageUrl),
       footer: DescriptionRichText(
         firstText: firstText,
         secondText: secondText,
@@ -194,47 +204,28 @@ class ContentCard extends StatelessWidget {
   }
 }
 
-class ContentCardWithLike extends StatelessWidget {
-  const ContentCardWithLike({
-    super.key,
-    required this.avatarImageUrl,
-    required this.title,
-    required this.heroImageUrl,
-    required this.firstText,
-    required this.secondText,
-    required this.thirdText,
-    required this.onTapLike,
-    required this.isLiked,
+class IconState {
+  final Color iconActiveColor;
+  final IconData iconData;
+  final Function(bool) onTapIcon;
+  final bool isIconActive;
+
+  IconState({
+    required this.iconActiveColor,
+    required this.iconData,
+    required this.onTapIcon,
+    required this.isIconActive,
   });
+}
 
-  final String avatarImageUrl;
-  final String title;
-  final String heroImageUrl;
-  final String firstText;
-  final String secondText;
-  final String thirdText;
-  final Function(bool) onTapLike;
-  final bool isLiked;
-
-  @override
-  Widget build(BuildContext context) {
-    return CardBase(
-      avatarImageUrl: avatarImageUrl,
-      title: title,
-      body: CardHeroWithToggleIcon(
-        imageUrl: heroImageUrl,
-        iconActiveColor: kRed,
-        iconData: FontAwesomeIcons.solidHeart,
-        onTapIcon: onTapLike,
-        isIconActive: isLiked,
-      ),
-      footer: DescriptionRichText(
-        firstText: firstText,
-        secondText: secondText,
-        thirdText: thirdText,
-        maxLines: 2,
-        shouldShowEllipsis: true,
-      ),
-    );
-  }
+class LikeIconState extends IconState {
+  LikeIconState({
+    required onTapLike,
+    required isLiked,
+  }) : super(
+          iconData: FontAwesomeIcons.solidHeart,
+          iconActiveColor: kRed,
+          isIconActive: isLiked,
+          onTapIcon: onTapLike,
+        );
 }

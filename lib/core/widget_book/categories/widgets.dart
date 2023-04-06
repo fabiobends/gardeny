@@ -90,7 +90,7 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
         ),
         WidgetbookUseCase(
           name: 'with Like',
-          builder: (context) => ContentCardWithLike(
+          builder: (context) => ContentCard(
             avatarImageUrl: context.knobs.text(
               label: 'avatarImageUrl',
               initialValue: 'https://picsum.photos/1000',
@@ -112,8 +112,7 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
               initialValue:
                   ', is beautiful. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
             ),
-            isLiked: true,
-            onTapLike: onTapLike,
+            iconState: LikeIconState(isLiked: true, onTapLike: onTapLike),
           ),
         ),
       ],

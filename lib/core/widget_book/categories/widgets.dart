@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:gardeny/core/widgets/button.dart';
 import 'package:gardeny/core/widgets/content_card.dart';
 import 'package:gardeny/core/widgets/input_field.dart';
+import 'package:gardeny/core/widgets/title_and_description.dart';
 import 'package:widgetbook/widgetbook.dart';
 
 void onTapLike(bool value) {
@@ -113,6 +114,24 @@ WidgetbookCategory widgetsCategory = WidgetbookCategory(
             ),
             isLiked: true,
             onTapLike: onTapLike,
+          ),
+        ),
+      ],
+    ),
+    WidgetbookComponent(
+      name: 'TitleAndDescription',
+      useCases: [
+        WidgetbookUseCase(
+          name: 'Regular',
+          builder: (context) => TitleAndDescription(
+            title: context.knobs.text(
+              label: 'title',
+              initialValue: 'Title here',
+            ),
+            description: context.knobs.text(
+              label: 'description',
+              initialValue: 'Here is some description',
+            ),
           ),
         ),
       ],
